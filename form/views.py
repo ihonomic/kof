@@ -50,7 +50,10 @@ class FormRecord(custom_views.View):
     template_name = join_path('download.html')
 
     def get(self, request):
-        return render(request, self.template_name, {})
+        response = create_form_history()
+        url = response["downloadUrl"]
+        print(f"{url=}")
+        return render(request, self.template_name, {"url": url})
 
     def post(self, request):
         # data = json.loads(request.body)
