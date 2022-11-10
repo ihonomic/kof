@@ -24,10 +24,11 @@ def create_form_history():
 # https://cloudinary.com/documentation/upload_images#file_source_options
     res = cloudinary.uploader.upload(
         './assests/output.csv',  resource_type="auto")
+    url = res["secure_url"]
 
     # print(f"{res=}")
 
-    return {"downloadUrl": res["secure_url"],  "filename": 'form_records'}
+    return {"downloadUrl": url,  "filename": 'form_records'}
 
 
 # def create_form_history() -> dict:

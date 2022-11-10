@@ -52,8 +52,8 @@ class FormRecord(custom_views.View):
     def get(self, request):
         return render(request, self.template_name, {})
 
-    def put(self, request):
-        data = json.loads(request.body)
+    def post(self, request):
+        # data = json.loads(request.body)
         # Retrieve Excel sheet
         response = create_form_history()
         return JsonResponse(response["downloadUrl"], safe=False)
