@@ -1,3 +1,5 @@
+# https://dev.to/osahenru/using-railway-app-to-deploy-your-django-project-3ah1 - DEPLOYING TO RAILWAYS
+
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
