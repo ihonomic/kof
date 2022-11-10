@@ -26,8 +26,8 @@ function App() {
   });
 
   const onSubmit = async (values, actions) => {
-    console.log(values);
-    console.log(actions);
+    // console.log(values);
+    // console.log(actions);
     // await new Promise((resolve) => setTimeout(resolve, 1000))
     const response = await submitFormAPI(values)
     if (response.status === "success") {
@@ -61,7 +61,7 @@ function App() {
   return (
     <div className='background'>
 
-      <div className="row" style={{ height: "120vh" }}>
+      <div className="row" style={{ height: "170vh" }}>
 
         <div className="col-md-7">
           <ToastContainer />
@@ -70,7 +70,7 @@ function App() {
           <div className='container-fluid' style={{ position: "absolute", top: 0 }}>
 
             <div className="logo">
-              <img src={LOGO} alt="" />
+              <img src={"https://res.cloudinary.com/dxj5r6fah/image/upload/v1668087977/assets/Logo_ua6fok.png"} alt="" />
             </div>
 
             <div className='main-content'>
@@ -221,7 +221,7 @@ function App() {
         </div>
 
         <div className="col-md-5 part2" style={{ backgroundColor: "#00003E", }}>
-          <img src={ADVERT} alt="" className='image' />
+          <img src={"https://res.cloudinary.com/dxj5r6fah/image/upload/v1668087998/assets/ADVERT_iw7mxg.png"} alt="" className='image' />
         </div>
 
       </div>

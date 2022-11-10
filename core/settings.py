@@ -184,6 +184,7 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 #
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticCloudinaryStorage'
 
+# https: // github.com/klis87/django-cloudinary-storage  # usage-with-static-files
 cloudinary.config(
     cloud_name="dxj5r6fah",
     api_key="349749124172324",

@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .main-content {
@@ -35,7 +35,7 @@
 .b1-inside {
   font-family: 'Rubik', sans-serif;
   font-style: normal;
-  font-weight: 700;
+  /* font-weight: 700; */
   font-size: 40px;
   line-height: 120%;
   text-align: center;
@@ -44,9 +44,11 @@
 }
 
 .image {
-  width: 70%;
-  height: 70%;
-  justify-content: center;
+  width: 420px;
+  height: 600px;
+  top: 100px;
+  position: absolute;
+  /* justify-content: center; */
 }
 
 .advert-link {
