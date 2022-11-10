@@ -139,6 +139,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'build', 'static')
@@ -178,10 +180,18 @@ MEDIA_URL = '/media/'
 #   Send uploaded images here
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
 #
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticCloudinaryStorage'
 
 cloudinary.config(
     cloud_name="dxj5r6fah",
     api_key="349749124172324",
     api_secret="4dgCbN9MtchDbm8TxUO5boRJW1c"
 )
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": "dxj5r6fah",
+    "API_KEY": "349749124172324",
+    "API_SECRET": "4dgCbN9MtchDbm8TxUO5boRJW1c"
+}
