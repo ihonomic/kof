@@ -1,13 +1,6 @@
-from openpyxl import load_workbook
-from openpyxl.styles import Font
-import re
-import random
-import os
-from django.core.files.base import ContentFile
-from .models import DocumentUpload
 from .models import FormData
-from django.db.models.query_utils import Q
 import csv
+import cloudinary
 
 
 def create_form_history():
@@ -27,18 +20,14 @@ def create_form_history():
 
     output_file.close()
 
-    unique = random.randint(0, 10000000)
-    uploadedFile = DocumentUpload.objects.create(name="payment_register")
+# https://cloudinary.com/documentation/django_image_and_video_upload
+# https://cloudinary.com/documentation/upload_images#file_source_options
+    res = cloudinary.uploader.upload(
+        './assests/output.csv',  resource_type="auto")
 
-    f = open(f'./assests/output.csv', 'rb')
-    uploadedFile.document.save(f"output-{unique}.csv", ContentFile(f.read()))
-    url = uploadedFile.document.url
+    # print(f"{res=}")
 
-    #   Close & Remove the local generated file
-    f.close()
-    # os.remove(f'./assests/output.csv')
-
-    return {"downloadUrl": url,  "filename": 'form_records'}
+    return {"downloadUrl": res["secure_url"],  "filename": 'form_records'}
 
 
 # def create_form_history() -> dict:

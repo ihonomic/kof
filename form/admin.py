@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import FormData, DocumentUpload
+from .models import FormData
 # Register your models here.
-admin.site.register((FormData, DocumentUpload))
+admin.site.register((FormData, ))

@@ -22,23 +22,3 @@ class FormData(models.Model):
 
 def user_upload_directory(instance, filename):
     return f'assests/{filename}'
-
-
-class DocumentUpload(models.Model):
-    '''
-        This Model holds all the uploaded contents
-        Excels, PDFs, Words, documents for the admin
-    '''
-    name = models.CharField(max_length=1000, help_text="payment_register,")
-    # document = models.FileField(upload_to=user_upload_directory)
-    document = CloudinaryField("document", resource_type='raw')
-
-    dateadded = models.DateTimeField(auto_now_add=True)
-    datemodified = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return str(f'{self.name}')
-
-    class Meta:
-        ordering = ('dateadded',)
-        verbose_name_plural = 'Documents (Excel format)'
