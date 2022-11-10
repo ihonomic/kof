@@ -1,0 +1,170 @@
+.background {
+  background: white;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  /* overflow: hidden; */
+  overflow-x: hidden;
+}
+
+.part2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.main-content {
+  width: 50%;
+}
+
+.b1 {
+  margin-top: 12px;
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 120%;
+  text-align: center;
+  letter-spacing: -0.05em;
+  color: #171039;
+}
+
+.b1-inside {
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 120%;
+  text-align: center;
+  letter-spacing: -0.05em;
+  color: #D2B038
+}
+
+.image {
+  width: 70%;
+  height: 70%;
+  justify-content: center;
+}
+
+.advert-link {
+  display: none !important;
+}
+
+@media only screen and (max-width: 991px) {
+  .b1 {
+    font-size: 30px;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .part2 {
+    display: none !important;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  .advert-link {
+    display: block !important;
+    color: #00003E;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 400;
+    font-family: 'Rubik', sans-serif;
+  }
+}
+
+
+
+
+.error {
+  color: #fc8181;
+  font-size: 0.75rem;
+  text-align: left;
+  margin-top: 0.25rem;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+
+form {
+  width: 95%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form label {
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+  text-align: left;
+  margin: 1rem 0 0.2rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.65rem 0.5rem;
+  font-size: 1rem;
+  color: #00003E;
+  border: 2px solid #F3F3F3;
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  outline: none;
+  caret-color: #00003E;
+  ;
+}
+
+input:focus,
+select:focus {
+  border-color: #00003E;
+}
+
+input::placeholder,
+select::placeholder {
+  color: #a0aec0;
+}
+
+input[type="checkbox"] {
+  width: fit-content;
+  margin-right: 0.5rem;
+  transform: scale(1.25);
+}
+
+button {
+  display: block;
+  margin: 1rem 0;
+  padding: 0.35rem 0.5rem;
+  background-color: #00003E;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.is-submittingForm {
+  background-color: #F3F3F3;
+}
+
+input.input-error,
+select.input-error {
+  border-color: #fc8181;
+}
+
+button:disabled {
+  opacity: 0.35;
+}
