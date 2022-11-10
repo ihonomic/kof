@@ -1,4 +1,5 @@
 # https://dev.to/osahenru/using-railway-app-to-deploy-your-django-project-3ah1 - DEPLOYING TO RAILWAYS
+# https://subtitletools.com/convert-text-files-to-utf8-online - Covert requirements.txt to utf-8
 
 from pathlib import Path
 import os
@@ -75,10 +76,24 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'gg4UZkAq3SR0Vx8XKrbA',
+        'HOST': 'containers-us-west-94.railway.app',
+        'PORT': '5799',
+        'OPTIONS': {
+                'sslmode': 'require',
+        },
     }
 }
 
