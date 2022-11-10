@@ -3,7 +3,7 @@ export const submitFormAPI = async (formData) => {
     console.log(formData, "API");
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/submit", {
+        const response = await fetch("https://kingogunremifoundation-production.up.railway.app/submit", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ ...formData })
