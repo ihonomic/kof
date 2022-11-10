@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class FormData(models.Model):
@@ -20,7 +21,7 @@ class FormData(models.Model):
 
 
 def user_upload_directory(instance, filename):
-    return f'document/{filename}'
+    return f'assests/{filename}'
 
 
 class DocumentUpload(models.Model):
@@ -29,7 +30,8 @@ class DocumentUpload(models.Model):
         Excels, PDFs, Words, documents for the admin
     '''
     name = models.CharField(max_length=1000, help_text="payment_register,")
-    document = models.FileField(upload_to=user_upload_directory)
+    # document = models.FileField(upload_to=user_upload_directory)
+    document = CloudinaryField("document", resource_type='raw')
 
     dateadded = models.DateTimeField(auto_now_add=True)
     datemodified = models.DateTimeField(auto_now=True)
