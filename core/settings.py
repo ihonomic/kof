@@ -166,12 +166,19 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 
 #   Email
+
+# EMAIL_HOST = 'a2plcpnl0666.prod.iad2.secureserver.net'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'qomuniti@zettaworkstech.com'
+# EMAIL_HOST_PASSWORD = 'c0ntr0lme?'
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = '****************@gmail.com'
-EMAIL_HOST_PASSWORD = '********'
+EMAIL_HOST_USER = 'kingsbarberconnectnigeria@gmail.com'
+EMAIL_HOST_PASSWORD = 'bfgirdfkkjmdkcjc'
 
 
 #    Tell django to look into folders called 'static'

@@ -1,17 +1,16 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import LOGO from './assets/Logo.png'
-import ADVERT from './assets/ADVERT.png'
+// import LOGO from './assets/Logo.png'
+// import ADVERT from './assets/ADVERT.png'
 import WaveSpline from './assets/svg/WaveSpline';
 import { useFormik } from 'formik';
 import { basicSchema } from './schemas';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { LGAARRAY } from './assets/constants/LGAARRAY';
+import { NIGERIASTATES } from './assets/constants/LGAARRAY';
 import { submitFormAPI } from './api';
 
 function App() {
-  const [lgaData, setLgaData] = useState([])
 
   const notify = () => toast.success('Congratulations! Your details has been submitted', {
     position: "top-right",
@@ -42,7 +41,7 @@ function App() {
     initialValues: {
       firstName: '',
       lastName: '',
-      age: "17",
+      age: "",
       email: "",
       phoneNumber: "",
       state: "",
@@ -56,6 +55,41 @@ function App() {
 
   // console.log(formik.errors);
 
+  const [nigeriaStates, setNigeriaStates] = useState([])
+  const [lgaData, setLgaData] = useState([])
+
+  const getStates = () => {
+    let filteredStates = []
+    for (let index = 0; index < NIGERIASTATES.length; index++) {
+      const object = NIGERIASTATES[index];
+      if (object.State in filteredStates) {
+      } else {
+        filteredStates.push(object.State)
+      }
+
+    }
+    let unique = Array.from(new Set(filteredStates))
+    unique.sort(function (a, b) {
+      return a === b ? 0 : a < b ? -1 : 1
+    })
+    setNigeriaStates(unique)
+  }
+
+  useEffect(() => {
+    getStates()
+  }, [])
+
+  const getLGA = (state) => {
+    // let state = "Edo"
+    let filteredLga = []
+    for (let index = 0; index < NIGERIASTATES.length; index++) {
+      const object = NIGERIASTATES[index];
+      if (object.State === state) {
+        filteredLga.push(object.LGA)
+      }
+    }
+    setLgaData(filteredLga)
+  }
 
 
   return (
@@ -78,7 +112,7 @@ function App() {
                 <h1 className="b1">
                   Battle Of The Barbers
                 </h1>
-                <h1>Africa: <span className='b1-inside'>Nigeria Edition</span></h1>
+                <h1> <span className='b1-outside'>Africa: </span> <span className='b1-inside'>Nigeria Edition</span></h1>
                 <h4>Registration Form</h4>
               </div>
 
@@ -112,6 +146,38 @@ function App() {
                   />
                   {formik.errors.lastName && formik.touched.lastName ? <p className='error'>{formik.errors.lastName}</p> : ''}
 
+                  <div className='row'>
+                    <div className='col-sm-4'>
+                      <label htmlFor="age">Age</label>
+                      <select name="age" id="age" onChange={formik.handleChange} placeholder='Select age' className={formik.errors.age && formik.touched.age ? "input-error" : ""}>
+                        <option value="">Select age</option>
+                        {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                          1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                          1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                          1, 1, 1, 1, 1, 1, 1,
+                          1, 1, 1, 1, 1, 1, 1, 1].map((elem, i) => (
+                            <option key={i} value={`${18 + i}`}>{18 + i}</option>
+                          ))}
+                      </select>
+                      {formik.errors.age && formik.touched.age ? <p className='error'>{formik.errors.age}</p> : ''}
+                    </div>
+
+                    <div className='col-sm-8'>
+                      <label htmlFor="phoneNumber">Phone Number</label>
+                      <input
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        placeholder='Input phone number'
+                        type="tel"
+                        onChange={formik.handleChange}
+                        value={formik.values.phoneNumber}
+                        onBlur={formik.handleBlur}
+                        className={formik.errors.phoneNumber && formik.touched.phoneNumber ? "input-error" : ""}
+                      />
+                      {formik.errors.phoneNumber && formik.touched.phoneNumber ? <p className='error'>{formik.errors.phoneNumber}</p> : ''}
+                    </div>
+                  </div>
+
                   <label htmlFor="email">Email</label>
                   <input
                     id="email"
@@ -125,41 +191,17 @@ function App() {
                   />
                   {formik.errors.email && formik.touched.email ? <p className='error'>{formik.errors.email}</p> : ''}
 
-
-                  <div className='row'>
-                    <div className='col-sm-4'>
-                      <label htmlFor="age">Age</label>
-                      <select name="age" id="age" onChange={formik.handleChange} placeholder='Select age' className={formik.errors.age && formik.touched.age ? "input-error" : ""}>
-                        <option value="17">17</option>
-                        {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                          1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                          1, 1, 1, 1, 1, 1, 1, 1].map((elem, i) => (
-                            <option key={i} value={`${18 + i}`}>{18 + i}</option>
-                          ))}
-                      </select>
-                      {formik.errors.age && formik.touched.age ? <p className='error'>{formik.errors.age}</p> : ''}
-                    </div>
-
-                    <div className='col-sm-8'>
-                      <label htmlFor="phoneNumber">Phone Number</label>
-                      <input
-                        id="phoneNumber"
-                        name="phoneNumber"
-                        type="tel"
-                        onChange={formik.handleChange}
-                        value={formik.values.phoneNumber}
-                        onBlur={formik.handleBlur}
-                        className={formik.errors.phoneNumber && formik.touched.phoneNumber ? "input-error" : ""}
-                      />
-                      {formik.errors.phoneNumber && formik.touched.phoneNumber ? <p className='error'>{formik.errors.phoneNumber}</p> : ''}
-                    </div>
-                  </div>
-
-
                   <label htmlFor="state">State</label>
-                  <select name="state" id="state" onChange={formik.handleChange} placeholder='Select L.G.A' className={formik.errors.state && formik.touched.state ? "input-error" : ""}>
+                  <select
+                    name="state"
+                    id="state"
+                    onChange={(e) => {
+                      formik.handleChange(e)
+                      getLGA(e.target.value)
+                    }}
+                    placeholder='Select L.G.A' className={formik.errors.state && formik.touched.state ? "input-error" : ""}>
                     <option value="">Select State</option>
-                    {LGAARRAY?.map((elem, i) => (
+                    {nigeriaStates?.map((elem, i) => (
                       <option key={i} value={`${elem}`}>{elem}</option>
                     ))}
                   </select>
@@ -169,7 +211,7 @@ function App() {
                   <label htmlFor="lga">Local Government Area (L.G.A)</label>
                   <select name="lga" id="lga" onChange={formik.handleChange} placeholder='Select L.G.A' className={formik.errors.lga && formik.touched.lga ? "input-error" : ""}>
                     <option value="">Select L.G.A</option>
-                    {LGAARRAY?.map((elem, i) => (
+                    {lgaData?.map((elem, i) => (
                       <option key={i} value={`${elem}`}>{elem}</option>
                     ))}
                   </select>

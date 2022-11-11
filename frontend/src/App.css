@@ -32,6 +32,17 @@
   color: #171039;
 }
 
+.b1-outside {
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  /* font-weight: 700; */
+  font-size: 40px;
+  line-height: 120%;
+  text-align: center;
+  letter-spacing: -0.05em;
+  color: #171039;
+}
+
 .b1-inside {
   font-family: 'Rubik', sans-serif;
   font-style: normal;

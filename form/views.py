@@ -8,6 +8,7 @@ import json
 from django.http import JsonResponse
 from .func import create_form_history
 from os.path import join as join_path
+from .email import send_user_email
 
 
 def FormViewPage(request):
@@ -43,6 +44,8 @@ class SubmitFormDetails(GenericAPIView):
             shop_name=shop_name
         )
 
+        send_user_email(email, first_name)
+
         return Response({"success": "form submitted"}, status='200')
 
 
@@ -52,7 +55,6 @@ class FormRecord(custom_views.View):
     def get(self, request):
         response = create_form_history()
         url = response["downloadUrl"]
-        print(f"{url=}")
         return render(request, self.template_name, {"url": url})
 
     def post(self, request):
