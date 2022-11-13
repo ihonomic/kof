@@ -110,9 +110,9 @@ function App() {
             <div className='main-content'>
               <div className='text-center'>
                 <h1 className="b1">
-                  Battle Of The Barbers
+                  Battle Of The Barbers Africa:
                 </h1>
-                <h1> <span className='b1-outside'>Africa: </span> <span className='b1-inside'>Nigeria Edition</span></h1>
+                <h6> <span className='b1-outside'> </span> <span className='b1-inside'>Nigeria Edition</span></h6>
                 <h4>Registration Form</h4>
               </div>
 
