@@ -3,6 +3,6 @@
 - DETAILS:
 
 email: kingsbarberconnectnigeria@gmail.com
-password : Kingsplace@2022
+password : ************
 username: kingsbarberconnect
 url: https://kingogunremifoundation-production.up.railway.app/
