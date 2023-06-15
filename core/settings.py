@@ -178,7 +178,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'kingsbarberconnectnigeria@gmail.com'
-EMAIL_HOST_PASSWORD = 'bfgirdfkkjmdkcjc'
+EMAIL_HOST_PASSWORD = '*************************'
 
 
 #    Tell django to look into folders called 'static'
@@ -193,13 +193,13 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticCloudinaryStorage'
 
 # https: // github.com/klis87/django-cloudinary-storage  # usage-with-static-files
 cloudinary.config(
-    cloud_name="dxj5r6fah",
-    api_key="349749124172324",
-    api_secret="4dgCbN9MtchDbm8TxUO5boRJW1c"
+    cloud_name="*****************",
+    api_key="*****************",
+    api_secret="*************************"
 )
 
 CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": "dxj5r6fah",
-    "API_KEY": "349749124172324",
-    "API_SECRET": "4dgCbN9MtchDbm8TxUO5boRJW1c"
+    "CLOUD_NAME": "*****************",
+    "API_KEY": "***********************",
+    "API_SECRET": "*********************"
 }
